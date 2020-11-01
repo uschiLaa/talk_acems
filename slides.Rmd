@@ -1,0 +1,158 @@
+---
+title: "Burning sage"
+subtitle1: "Reversing the curse of dimensionality in the visualization of high-dimensional data"
+subtitle2: "work in collaboration with Di Cook and Stuart Lee"
+subtitle3: "arXiv:2009.10979"
+author: "Ursula Laa"
+email: "ursula.laa@monash.edu"
+date: "6th November 2020"
+pdflink: "FIXME"
+bgimg: ""
+output:
+  xaringan::moon_reader:
+    css:
+      - ninjutsu 
+      - "assets/animate.css"
+      - "assets/monash-logo.css"
+      - "assets/monash-brand.css"
+      - "assets/monash-fonts.css"
+      - "assets/styles.css" # small improvements
+      - "assets/custom.css" # add your own CSS here!
+      - "assets/emi.css" # emi specific css
+    self_contained: false 
+    seal: false 
+    chakra: 'libs/remark-latest.min.js'
+    lib_dir: libs
+    includes:
+      in_header: "assets/custom.html"
+    mathjax: "assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    nature:
+      highlightStyle: github 
+      highlightLanguage: r 
+      highlightLines: true
+      highlightSpans: false 
+      countIncrementalSlides: false
+      slideNumberFormat: '%current%'
+      navigation:
+        scroll: false 
+        touch: true
+        click: false
+      ratio: '16:9'
+---
+
+
+```{r titleslide, child="components/titleslide.Rmd"}
+```
+
+```{r setup, include = FALSE}
+options(width = 600)
+library(tidyverse)
+filter <- dplyr::filter
+
+library(tourr)
+library(plotly)
+library(htmltools)
+```
+
+
+---
+## Curse of dimensionality paradox
+
+- **Origin**: Bellman (1961) described difficulty of optimization in high dimensions given exponential growth in space
+- **Consequence**: most points are far from the sample mean, near the edge of the sample space
+- **Paradox**: using dimension reduction we instead get an excessive amount of observations near the center of the distribution, most projections are approximately Gaussian
+
+.center[
+  <img src="images/density-1.pdf" width = "75%" />
+]
+
+---
+## Concepts of projected volume
+
+
+- To understand the piling near the center of projections, we can think about the high-dimensional volume projected onto a 2D area
+- To impose rotation invariance and avoide edge effects, we start from a hypersphere in p dimensions
+
+<br>
+
+--
+
+.center[
+  <img src="images/diagram.pdf" width = "55%" />
+]
+
+---
+## Concepts of projected volume
+
+
+- To understand the piling near the center of projections, we can think about the high-dimensional volume projected onto a 2D area
+- To impose rotation invariance and avoide edge effects, we start from a hypersphere in p dimensions
+
+<br>
+
+
+.center[
+  <img src="images/cdf-1.pdf" width = "75%" />
+]
+
+---
+## Burning sage transformation
+
+We can define a radial transformation that will redistribute the projected volume such that equal pD volume is projected onto equal 2D area
+
+$$r'_y = R \sqrt{1-\left(1-\left(\frac{r_y}{R}\right)^2\right)^{p/2}}$$
+
+--
+
+.center[
+  <img src="images/radii-1.pdf" width = "55%" />
+]
+
+---
+## Burning sage transformation
+
+We can define a radial transformation that will redistribute the projected volume such that equal pD volume is projected onto equal 2D area
+
+$$r'_y = R \sqrt{1-\left(1-\left(\frac{r_y}{R}\right)^2\right)^{p/2}}$$
+
+
+.center[
+  <img src="images/circles-1.pdf" width = "85%" />
+]
+
+---
+## Sage tour
+
+The new transformation is especially useful combined with a tour display, showing sequences of low-dimensional projections: for each new view we project the data to 2D and then show the sage display of the projected data
+
+<br>
+
+<iframe src="4cube.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"> </iframe>
+<iframe src="4sphere.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"> </iframe>
+<iframe src="10sphere.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"> </iframe>
+
+---
+## Needle in a haystack: Pollen data
+
+<br><br>
+
+<img src="gifs/pollen_sage.gif" width="300"/> <img src="gifs/pollen_sage_R1.gif" width="300"/> <img src="gifs/pollen_sage_gam20.gif" width="300"/>
+
+---
+## Clustering in high dimensions: Single Cell Mouse Retina Data
+
+<br>
+
+.center[
+<img src="gifs/mouse_grand_2c.gif" width="400"/> <img src="gifs/mouse_sage_2c_gam3.gif" width="400"/>
+]
+---
+## Discussion & Outlook
+
+- We introduced a new display that is useful when visualising high-dimensional data in low-dimensional projections
+- This is especially useful in combination with a tour, implemented as the **sage tour** display
+- An alternative approach is the **slice tour**, discussed by Di last year [Laa, Cook, Valencia (2020)]
+- These new displays are complementary to non-linear dimension reduction methods for visualisation, e.g. t-SNE
+- The displays should be implemented in an interactive interface for efficient tuning
+- We can also think of new transformation and slicing methods, for example a local transformation that takes density into account
+

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Burning sage</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ursula Laa" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <link href="libs/font-awesome-animation-1.0/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome-5.0.13/js/fontawesome-all.min.js"></script>
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+    -->
+    <link rel="icon" href="images/favicon.ico"  type='image/x-icon'/>
+    <link rel="stylesheet" href="assets/animate.css" type="text/css" />
+    <link rel="stylesheet" href="assets/monash-logo.css" type="text/css" />
+    <link rel="stylesheet" href="assets/monash-brand.css" type="text/css" />
+    <link rel="stylesheet" href="assets/monash-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="assets/styles.css" type="text/css" />
+    <link rel="stylesheet" href="assets/custom.css" type="text/css" />
+    <link rel="stylesheet" href="assets/emi.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+background-image: url()
+background-size: contain
+class: hide-slide-number split-70 title-slide
+count: false
+
+.column[.content[.monash-gray80[
+
+&lt;br&gt;
+
+# .monash-blue[ &amp;nbsp; Burning sage]
+
+
+&lt;h2 style="font-weight:900!important;"&gt;Reversing the curse of dimensionality in the visualization of high-dimensional data&lt;/h2&gt;
+.center[.monash-gray50[work in collaboration with Di Cook and Stuart Lee]]
+.center[.monash-gray50[arXiv:2009.10979]]
+
+
+.bottom_abs.width100[
+
+## .monash-blue[Ursula Laa]
+
+Monash University
+
+Department of Econometrics and Business Statistics &amp;
+School of Physics and Astronomy
+
+<span>&lt;i class="fas  fa-envelope faa-float animated "&gt;&lt;/i&gt;</span>  ursula.laa@monash.edu
+
+6th November 2020
+
+&lt;br&gt;
+]
+
+
+]]
+]
+
+
+&lt;div class="column transition monash-m-new delay-1s" style="clip-path:url(#swipe__clip-path);"&gt;
+&lt;div class="background-image" style="background-image:url('images/large.png');background-position: center;background-size:cover;margin-left:3px;"&gt;
+&lt;svg class="clip-svg absolute"&gt;
+&lt;defs&gt;
+&lt;clipPath id="swipe__clip-path" clipPathUnits="objectBoundingBox"&gt;
+&lt;polygon points="0.5745 0, 0.5 0.33, 0.42 0, 0 0, 0 1, 0.27 1, 0.27 0.59, 0.37 1, 0.634 1, 0.736 0.59, 0.736 1, 1 1, 1 0, 0.5745 0" /&gt;
+&lt;/clipPath&gt;
+&lt;/defs&gt;	
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+
+
+
+
+---
+## Curse of dimensionality paradox
+
+- **Origin**: Bellman (1961) described difficulty of optimization in high dimensions given exponential growth in space
+- **Consequence**: most points are far from the sample mean, near the edge of the sample space
+- **Paradox**: using dimension reduction we instead get an excessive amount of observations near the center of the distribution, most projections are approximately Gaussian
+
+.center[
+  &lt;img src="images/density-1.pdf" width = "75%" /&gt;
+]
+
+---
+## Concepts of projected volume
+
+
+- To understand the piling near the center of projections, we can think about the high-dimensional volume projected onto a 2D area
+- To impose rotation invariance and avoide edge effects, we start from a hypersphere in p dimensions
+
+&lt;br&gt;
+
+--
+
+.center[
+  &lt;img src="images/diagram.pdf" width = "55%" /&gt;
+]
+
+---
+## Concepts of projected volume
+
+
+- To understand the piling near the center of projections, we can think about the high-dimensional volume projected onto a 2D area
+- To impose rotation invariance and avoide edge effects, we start from a hypersphere in p dimensions
+
+&lt;br&gt;
+
+
+.center[
+  &lt;img src="images/cdf-1.pdf" width = "75%" /&gt;
+]
+
+---
+## Burning sage transformation
+
+We can define a radial transformation that will redistribute the projected volume such that equal pD volume is projected onto equal 2D area
+
+`$$r'_y = R \sqrt{1-\left(1-\left(\frac{r_y}{R}\right)^2\right)^{p/2}}$$`
+
+--
+
+.center[
+  &lt;img src="images/radii-1.pdf" width = "55%" /&gt;
+]
+
+---
+## Burning sage transformation
+
+We can define a radial transformation that will redistribute the projected volume such that equal pD volume is projected onto equal 2D area
+
+`$$r'_y = R \sqrt{1-\left(1-\left(\frac{r_y}{R}\right)^2\right)^{p/2}}$$`
+
+
+.center[
+  &lt;img src="images/circles-1.pdf" width = "85%" /&gt;
+]
+
+---
+## Sage tour
+
+The new transformation is especially useful combined with a tour display, showing sequences of low-dimensional projections: for each new view we project the data to 2D and then show the sage display of the projected data
+
+&lt;br&gt;
+
+&lt;iframe src="4cube.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+&lt;iframe src="4sphere.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+&lt;iframe src="10sphere.html" width="310" height="400" scrolling="no" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+
+---
+## Needle in a haystack: Pollen data
+
+&lt;br&gt;&lt;br&gt;
+
+&lt;img src="gifs/pollen_sage.gif" width="300"/&gt; &lt;img src="gifs/pollen_sage_R1.gif" width="300"/&gt; &lt;img src="gifs/pollen_sage_gam20.gif" width="300"/&gt;
+
+---
+## Clustering in high dimensions: Single Cell Mouse Retina Data
+
+&lt;br&gt;
+
+.center[
+&lt;img src="gifs/mouse_grand_2c.gif" width="400"/&gt; &lt;img src="gifs/mouse_sage_2c_gam3.gif" width="400"/&gt;
+]
+---
+## Discussion &amp; Outlook
+
+- We introduced a new display that is useful when visualising high-dimensional data in low-dimensional projections
+- This is especially useful in combination with a tour, implemented as the **sage tour** display
+- An alternative approach is the **slice tour**, discussed by Di last year [Laa, Cook, Valencia (2020)]
+- These new displays are complementary to non-linear dimension reduction methods for visualisation, e.g. t-SNE
+- The displays should be implemented in an interactive interface for efficient tuning
+- We can also think of new transformation and slicing methods, for example a local transformation that takes density into account
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLanguage": "r",
+"highlightLines": true,
+"highlightSpans": false,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%",
+"navigation": {
+"scroll": false,
+"touch": true,
+"click": false
+},
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'assets/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
