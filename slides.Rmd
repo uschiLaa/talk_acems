@@ -56,6 +56,32 @@ library(htmltools)
 
 
 ---
+## Reminder: talk by Di Cook two years ago
+
+<br><br>
+
+
+  <img src="images/uncut_cake.png" width = "32%" />
+  
+--
+  <img src="images/inside_cake_original.png" width = "32%" />
+  
+--
+  <img src="images/inside_cake_pinched.png" width = "32%" />
+
+
+---
+## Solution: Slice tour
+
+Define slices based on the orthogonal distance of points from any projection plane, and visualize the result in an animated tour
+
+<img src="gifs/sphere-3-anchored.gif" width="300"/> <img src="gifs/pollen.gif" width="300"/> <img src="gifs/pollen-zoom.gif" width="300"/>
+
+Described in [Laa, Cook, Valencia (2020)](https://doi.org/10.1080/10618600.2020.1777140)
+
+Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13327)
+
+---
 ## Curse of dimensionality paradox
 
 - **Origin**: Bellman (1961) described difficulty of optimization in high dimensions given exponential growth in space
@@ -149,10 +175,12 @@ The new transformation is especially useful combined with a tour display, showin
 ---
 ## Discussion & Outlook
 
+<br>
+
 - We introduced a new display that is useful when visualising high-dimensional data in low-dimensional projections
 - This is especially useful in combination with a tour, implemented as the **sage tour** display
-- An alternative approach is the **slice tour**, discussed by Di last year [Laa, Cook, Valencia (2020)]
+- A related approach is the **slice tour**
 - These new displays are complementary to non-linear dimension reduction methods for visualisation, e.g. t-SNE
 - The displays should be implemented in an interactive interface for efficient tuning
-- We can also think of new transformation and slicing methods, for example a local transformation that takes density into account
+- We can also think of new transformation and slicing methods
 
