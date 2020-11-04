@@ -97,7 +97,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 
 
 - To understand the piling near the center of projections, we can think about the high-dimensional volume projected onto a 2D area
-- To impose rotation invariance and avoide edge effects, we start from a hypersphere in p dimensions
+- To impose rotation invariance and avoid edge effects, we start from a hypersphere in p dimensions
 
 <br>
 
@@ -112,7 +112,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 
 
 - To understand the piling near the center of projections, we can think about the high-dimensional volume projected onto a 2D area
-- To impose rotation invariance and avoide edge effects, we start from a hypersphere in p dimensions
+- To impose rotation invariance and avoid edge effects, we start from a hypersphere in p dimensions
 
 <br>
 
@@ -173,14 +173,41 @@ The new transformation is especially useful combined with a tour display, showin
 <img src="gifs/mouse_grand_2c.gif" width="400"/> <img src="gifs/mouse_sage_2c_gam3.gif" width="400"/>
 ]
 ---
+## Clustering in high dimensions: Single Cell Mouse Retina Data
+
+```{r, echo=F, warning=F, error=F, message=F, out.width="95%", fig.align="center"}
+library(magick)
+dir <- here::here("images/")
+frames <- c("001", "016", "038", "074")
+draw_frames <- function(pngs) {
+  res <- lapply(pngs, image_read)
+  res <- do.call("c", res)
+  image_append(res)
+}
+
+draw_panel <- function(a, b) {
+  whitespace <- image_blank(image_info(a)$width, 50, color = "none")
+  img <- c(a, whitespace, b)
+  image_append(img, stack = TRUE)
+}
+mouse_grand <- paste0(dir, "mouse_grand_2c-", frames, ".png")
+mouse_grand_panel <- draw_frames(mouse_grand)
+mouse_sage <- paste0(dir, "mouse_sage_2c_gam3-", frames, ".png")
+mouse_sage_panel <- draw_frames(mouse_sage)
+
+mouse <- draw_panel(mouse_grand_panel, mouse_sage_panel)
+mouse
+```
+
+---
 ## Discussion & Outlook
 
 <br>
 
-- We introduced a new display that is useful when visualising high-dimensional data in low-dimensional projections
+- We introduced a new display that is useful when visualizing high-dimensional data in low-dimensional projections
 - This is especially useful in combination with a tour, implemented as the **sage tour** display
 - A related approach is the **slice tour**
-- These new displays are complementary to non-linear dimension reduction methods for visualisation, e.g. t-SNE
+- These new displays are complementary to non-linear dimension reduction methods for visualization, e.g. t-SNE
 - The displays should be implemented in an interactive interface for efficient tuning
 - We can also think of new transformation and slicing methods
 
