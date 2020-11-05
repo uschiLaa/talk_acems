@@ -82,30 +82,38 @@ School of Physics and Astronomy
 
 
 ---
-## Reminder: talk by Di Cook two years ago
+## Open problem described in 2018 (Di Cook)
 
 &lt;br&gt;&lt;br&gt;
 
+.center[
 
-  &lt;img src="images/uncut_cake.png" width = "32%" /&gt;
-  
---
-  &lt;img src="images/inside_cake_original.png" width = "32%" /&gt;
-  
---
-  &lt;img src="images/inside_cake_pinched.png" width = "32%" /&gt;
+&lt;div &gt;
+    &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt; pD object &lt;/b&gt;
+        &lt;a href=""&gt;
+&lt;img src="images/uncut_cake.png" width = "90%" /&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+        &lt;div style="width: 33%; float: left"&gt;
+        &lt;b&gt;3D slice&lt;/b&gt;
+         &lt;br&gt;&lt;br&gt; &lt;br&gt;
+        &lt;a href=""&gt;
+&lt;img src="images/inside_cake_original.png" width = "90%" /&gt;      &lt;/a&gt;
+    &lt;/div&gt;
+        &lt;div style="width: 33%; float: left"&gt;
+       &lt;b&gt;pD slice&lt;/b&gt;
+        &lt;br&gt;&lt;br&gt; &lt;br&gt;
+        &lt;a href=""&gt;
+  &lt;img src="images/inside_cake_pinched.png" width = "90%" /&gt;        &lt;/a&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+]
 
+&lt;br&gt;
 
----
-## Solution: Slice tour
-
-Define slices based on the orthogonal distance of points from any projection plane, and visualize the result in an animated tour
-
-&lt;img src="gifs/sphere-3-anchored.gif" width="300"/&gt; &lt;img src="gifs/pollen.gif" width="300"/&gt; &lt;img src="gifs/pollen-zoom.gif" width="300"/&gt;
-
-Described in [Laa, Cook, Valencia (2020)](https://doi.org/10.1080/10618600.2020.1777140)
-
-Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13327)
+&lt;small&gt;
+Picture sources: [Samantha Cooper](https://www.pinterest.com.au/pin/551831760586431358Samantha Cooper) and [CakesDekor](https://www.pinterest.com.au/pin/383368987005449767/)
+&lt;/small&gt;
 
 ---
 ## Curse of dimensionality paradox
@@ -115,7 +123,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 - **Paradox**: using dimension reduction we instead get an excessive amount of observations near the center of the distribution, most projections are approximately Gaussian
 
 .center[
-  &lt;img src="images/density-1.pdf" width = "75%" /&gt;
+  &lt;img src="images/density-1.png" width = "75%" /&gt;
 ]
 
 ---
@@ -130,7 +138,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 --
 
 .center[
-  &lt;img src="images/diagram.pdf" width = "55%" /&gt;
+  &lt;img src="images/diagram.png" width = "55%" /&gt;
 ]
 
 ---
@@ -144,7 +152,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 
 
 .center[
-  &lt;img src="images/cdf-1.pdf" width = "75%" /&gt;
+  &lt;img src="images/cdf-1.png" width = "75%" /&gt;
 ]
 
 ---
@@ -157,7 +165,7 @@ We can define a radial transformation that will redistribute the projected volum
 --
 
 .center[
-  &lt;img src="images/radii-1.pdf" width = "55%" /&gt;
+  &lt;img src="images/radii-1.png" width = "55%" /&gt;
 ]
 
 ---
@@ -169,7 +177,7 @@ We can define a radial transformation that will redistribute the projected volum
 
 
 .center[
-  &lt;img src="images/circles-1.pdf" width = "85%" /&gt;
+  &lt;img src="images/circles-1.png" width = "85%" /&gt;
 ]
 
 ---
@@ -208,12 +216,71 @@ The new transformation is especially useful combined with a tour display, showin
 
 &lt;br&gt;
 
-- We introduced a new display that is useful when visualizing high-dimensional data in low-dimensional projections
+- New display that reverses piling effects when visualizing high-dimensional data in low-dimensional projections
 - This is especially useful in combination with a tour, implemented as the **sage tour** display
-- A related approach is the **slice tour**
+- Related approach: **slice tour** [Laa, Cook, Valencia (2020)](https://doi.org/10.1080/10618600.2020.1777140)
 - These new displays are complementary to non-linear dimension reduction methods for visualization, e.g. t-SNE
-- The displays should be implemented in an interactive interface for efficient tuning
-- We can also think of new transformation and slicing methods
+- Displays should be implemented in an interactive interface, for efficient tuning
+- Thinking about new transformations and slicing methods
+
+---
+# Acknowledgements
+
+&lt;br&gt;
+
+My slides are made using `RMarkdown`, `xaringan` and the `ninjutsu` theme, and based on a Monash themed template from **Emi Tanaka**.
+
+&lt;br&gt;
+
+The main `R` packages used are `tourr`, `tidyverse`, `plotly`, `geozoo`.
+
+&lt;br&gt;
+
+This is joint work done in collaboration with **Dianne Cook** and **Stuart Lee**.
+
+---
+
+
+background-image: url()
+background-size: contain
+class: hide-slide-number split-70
+count: false
+
+.column[.content[
+
+&lt;br&gt;&lt;br&gt;
+
+# Thanks!
+
+&lt;br&gt; 
+&lt;a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"&gt;&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /&gt;&lt;/a&gt;&lt;br /&gt;This work is licensed under a &lt;a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;.
+
+.bottom_abs.width100[
+
+&lt;h2 style="font-weight:900!important;"&gt;Ursula Laa&lt;/h2&gt;
+
+Monash University
+
+Department of Econometrics and Business Statistics &amp;
+School of Physics and Astronomy
+
+<span>&lt;i class="fas  fa-envelope faa-float animated "&gt;&lt;/i&gt;</span>  ursula.laa@monash.edu
+]
+
+
+]]
+
+&lt;div class="column transition monash-m-new delay-2s" style="clip-path:url(#swipe__clip-path);"&gt;
+&lt;div class="background-image" style="background-image:url('images/large.png');background-position: center;background-size:cover;margin-left:3px;"&gt;
+&lt;svg class="clip-svg absolute"&gt;
+&lt;defs&gt;
+&lt;clipPath id="swipe__clip-path" clipPathUnits="objectBoundingBox"&gt;
+&lt;polygon points="0.5745 0, 0.5 0.33, 0.42 0, 0 0, 0 1, 0.27 1, 0.27 0.59, 0.37 1, 0.634 1, 0.736 0.59, 0.736 1, 1 1, 1 0, 0.5745 0" /&gt;
+&lt;/clipPath&gt;
+&lt;/defs&gt;	
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;/div&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>

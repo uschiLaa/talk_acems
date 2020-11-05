@@ -56,30 +56,38 @@ library(htmltools)
 
 
 ---
-## Reminder: talk by Di Cook two years ago
+## Open problem described in 2018 (Di Cook)
 
 <br><br>
 
+.center[
 
-  <img src="images/uncut_cake.png" width = "32%" />
-  
---
-  <img src="images/inside_cake_original.png" width = "32%" />
-  
---
-  <img src="images/inside_cake_pinched.png" width = "32%" />
+<div >
+    <div style="width: 33%; float: left">
+        <b> pD object </b>
+        <a href="">
+<img src="images/uncut_cake.png" width = "90%" />        </a>
+    </div>
+        <div style="width: 33%; float: left">
+        <b>3D slice</b>
+         <br><br> <br>
+        <a href="">
+<img src="images/inside_cake_original.png" width = "90%" />      </a>
+    </div>
+        <div style="width: 33%; float: left">
+       <b>pD slice</b>
+        <br><br> <br>
+        <a href="">
+  <img src="images/inside_cake_pinched.png" width = "90%" />        </a>
+    </div>
+    </div>
+]
 
+<br>
 
----
-## Solution: Slice tour
-
-Define slices based on the orthogonal distance of points from any projection plane, and visualize the result in an animated tour
-
-<img src="gifs/sphere-3-anchored.gif" width="300"/> <img src="gifs/pollen.gif" width="300"/> <img src="gifs/pollen-zoom.gif" width="300"/>
-
-Described in [Laa, Cook, Valencia (2020)](https://doi.org/10.1080/10618600.2020.1777140)
-
-Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13327)
+<small>
+Picture sources: [Samantha Cooper](https://www.pinterest.com.au/pin/551831760586431358Samantha Cooper) and [CakesDekor](https://www.pinterest.com.au/pin/383368987005449767/)
+</small>
 
 ---
 ## Curse of dimensionality paradox
@@ -89,7 +97,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 - **Paradox**: using dimension reduction we instead get an excessive amount of observations near the center of the distribution, most projections are approximately Gaussian
 
 .center[
-  <img src="images/density-1.pdf" width = "75%" />
+  <img src="images/density-1.png" width = "75%" />
 ]
 
 ---
@@ -104,7 +112,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 --
 
 .center[
-  <img src="images/diagram.pdf" width = "55%" />
+  <img src="images/diagram.png" width = "55%" />
 ]
 
 ---
@@ -118,7 +126,7 @@ Related work in [Laa, Cook, Buja, Valencia (2020)](https://arxiv.org/abs/2004.13
 
 
 .center[
-  <img src="images/cdf-1.pdf" width = "75%" />
+  <img src="images/cdf-1.png" width = "75%" />
 ]
 
 ---
@@ -131,7 +139,7 @@ $$r'_y = R \sqrt{1-\left(1-\left(\frac{r_y}{R}\right)^2\right)^{p/2}}$$
 --
 
 .center[
-  <img src="images/radii-1.pdf" width = "55%" />
+  <img src="images/radii-1.png" width = "55%" />
 ]
 
 ---
@@ -143,7 +151,7 @@ $$r'_y = R \sqrt{1-\left(1-\left(\frac{r_y}{R}\right)^2\right)^{p/2}}$$
 
 
 .center[
-  <img src="images/circles-1.pdf" width = "85%" />
+  <img src="images/circles-1.png" width = "85%" />
 ]
 
 ---
@@ -204,10 +212,28 @@ mouse
 
 <br>
 
-- We introduced a new display that is useful when visualizing high-dimensional data in low-dimensional projections
+- New display that reverses piling effects when visualizing high-dimensional data in low-dimensional projections
 - This is especially useful in combination with a tour, implemented as the **sage tour** display
-- A related approach is the **slice tour**
+- Related approach: **slice tour** [Laa, Cook, Valencia (2020)](https://doi.org/10.1080/10618600.2020.1777140)
 - These new displays are complementary to non-linear dimension reduction methods for visualization, e.g. t-SNE
-- The displays should be implemented in an interactive interface for efficient tuning
-- We can also think of new transformation and slicing methods
+- Displays should be implemented in an interactive interface, for efficient tuning
+- Thinking about new transformations and slicing methods
 
+---
+# Acknowledgements
+
+<br>
+
+My slides are made using `RMarkdown`, `xaringan` and the `ninjutsu` theme, and based on a Monash themed template from **Emi Tanaka**.
+
+<br>
+
+The main `R` packages used are `tourr`, `tidyverse`, `plotly`, `geozoo`.
+
+<br>
+
+This is joint work done in collaboration with **Dianne Cook** and **Stuart Lee**.
+
+---
+```{r endslide, child="components/endslide.Rmd"}
+```
